@@ -6,11 +6,16 @@ body {
     background-color: #102233;
 }
 
-p, ul, h1 {
+p, ul, h1, th, td {
     color: white;
     padding: 4px;
+    margin-bottom: 20px;
 }
 
 h1 {
     font-size: 25px;
+}
+
+html {
+    width: 100%;
 }
