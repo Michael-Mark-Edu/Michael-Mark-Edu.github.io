@@ -3,10 +3,14 @@
 @tailwind utilities;
 
 body {
-    background-color: #0c1926;
+    background-color: #102233;
 }
 
-p {
+p, ul, h1 {
     color: white;
     padding: 4px;
+}
+
+h1 {
+    font-size: 25px;
 }
