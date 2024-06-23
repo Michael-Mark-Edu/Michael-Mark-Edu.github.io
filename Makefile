@@ -1,4 +1,4 @@
-index.js: src/*.tsx
+prod/index.js: src/*.tsx
 	bun build --minify src/index.tsx --outfile prod/index.js
 
 tailwind:
