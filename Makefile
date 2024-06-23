@@ -1,2 +1,2 @@
-build: ./build/index.js
-	bun build --minify src/index.tsx > build/index.js
+index.js: src/*.tsx
+	bun build --minify src/index.tsx --outfile index.js
