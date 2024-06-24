@@ -9,6 +9,8 @@ export default function App() {
         </nav>
         <div className="h-11"></div>
 
+        <h1>Disclaimer: Post is not finished.</h1>
+
         <p>Gleam, when it's completely by itself, kinda sucks. A "pure" Gleam program can do little more than be a simple CLI tool.</p>
 
         <p>That's why we have the <Code>@external</Code> attribute!</p>
@@ -61,7 +63,7 @@ export default function App() {
 
         <p>I have prepared a cheat sheet of how each of the Gleam types are converted into JavaScript and Erlang. (DISCLAIMER: INFORMATION IS NEITHER FACT CHECKED OR FINISHED)</p>
 
-        <table className="bg-black border-gray-600 text-white p-2 border-4 m-1 mb-5 w-fit">
+        <table className="bg-black text-white p-2 m-1 mb-5 w-fit">
             <tbody>
                 <GEJTripletHeader
                     gl="Gleam"

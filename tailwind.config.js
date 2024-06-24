@@ -2,7 +2,11 @@
 export default {
     content: ["src/*", "build/*"],
     theme: {
-        extend: {},
+        extend: {
+            colors: {
+                'bgcol': '#102233'
+            }
+        },
     },
     plugins: [],
 }
