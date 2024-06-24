@@ -10,8 +10,7 @@ jobs:
           bun-version: latest
       - run: bun install
       - run: mkdir build
-      - run: bun build --minify src/index.tsx --outfile build/index.js
-      - run: bunx tailwindcss -i src/input.css -o build/style.css --minify
+      - run: make build
       - run: tar -czvf github-pages index.html build/index.js build/style.css
       - uses: actions/upload-pages-artifact@v3.0.1
         with:
