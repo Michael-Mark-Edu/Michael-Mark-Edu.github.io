@@ -1,0 +1,32 @@
+name: Deploy
+on: [push]
+jobs:
+  build-statics:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+      - run: bun install
+      - run: mkdir build
+      - run: bun build --minify src/index.tsx --outfile build/index.js
+      - run: bunx tailwindcss -i src/input.css -o build/style.css --minify
+      - run: tar -czvf artifacts.tar.gz index.html build/index.js build/style.css
+      - uses: actions/upload-pages-artifact@v3.0.1
+        with:
+          name: artifacts.tar.gz
+          path: ./
+  deploy:
+    needs: build-statics
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
