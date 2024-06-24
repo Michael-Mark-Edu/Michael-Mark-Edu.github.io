@@ -12,10 +12,10 @@ jobs:
       - run: mkdir build
       - run: bun build --minify src/index.tsx --outfile build/index.js
       - run: bunx tailwindcss -i src/input.css -o build/style.css --minify
-      - run: tar -czvf artifacts.tar.gz index.html build/index.js build/style.css
+      - run: tar -czvf github-pages index.html build/index.js build/style.css
       - uses: actions/upload-pages-artifact@v3.0.1
         with:
-          name: artifacts.tar.gz
+          name: github-pages
           path: ./
   deploy:
     needs: build-statics
