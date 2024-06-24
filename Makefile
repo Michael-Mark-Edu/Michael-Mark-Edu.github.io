@@ -1,4 +1,6 @@
-build: clean build/style.css build/index.js
+rebuild: clean build
+
+build: build/style.css build/index.js
 
 build/style.css: src/input.css
 	bunx tailwindcss -i src/input.css -o build/style.css --minify
