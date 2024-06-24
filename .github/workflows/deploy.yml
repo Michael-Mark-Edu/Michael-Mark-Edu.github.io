@@ -4,15 +4,22 @@ jobs:
   build-statics:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: oven-sh/setup-bun@v2
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Install Bun
+        uses: oven-sh/setup-bun@v2
         with:
           bun-version: latest
-      - run: bun install
-      - run: mkdir build
-      - run: make build
-      - run: tar -czvf github-pages index.html build/index.js build/style.css
-      - uses: actions/upload-pages-artifact@v3.0.1
+      - name: Install Dependencies
+        run: bun install
+      - name: Create Build Directory
+        run: mkdir build
+      - name: Build Static Files
+        run: make build
+      - name: Compress Into Artifact
+        run: tar -czvf github-pages index.html build/index.js build/style.css
+      - name: Send Artifact
+        uses: actions/upload-pages-artifact@v3.0.1
         with:
           name: github-pages
           path: ./
